@@ -54,6 +54,7 @@ class DatabaseSeeder extends Seeder
         User::factory()->create([
             'name' => 'Admin User',
             'email' => 'admin@example.com',
+            'password' => '12345678',
         ])->assignRole(RolesEnum::Admin);
 
         User::factory()->create([
