@@ -13,6 +13,14 @@ export type PaginatedData<T = any> = {
     data: T[];
     links:Record<string, string>;
 };
+
+export type Feature = {
+    id: number;
+    name: string;
+    description: string;
+    user: User;
+    created_at: string;
+}
 export type PageProps<
     T extends Record<string, unknown> = Record<string, unknown>,
 > = T & {

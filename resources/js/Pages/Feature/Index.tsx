@@ -1,8 +1,13 @@
-import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
-import { PaginatedData } from '@/types';
-import { Head } from '@inertiajs/react';
+import FeatureItem from "@/Components/FeatureItem";
+import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
+import { Feature, PaginatedData } from "@/types";
+import { Head } from "@inertiajs/react";
 
-export default function index({features}:{features:PaginatedData}) {
+export default function index({
+    features,
+}: {
+    features: PaginatedData<Feature>;
+}) {
     console.log(features);
     return (
         <AuthenticatedLayout
@@ -14,17 +19,9 @@ export default function index({features}:{features:PaginatedData}) {
         >
             <Head title="Dashboard" />
 
-            <div className="py-12">
-                <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
-                    <div className="overflow-hidden bg-white shadow-sm sm:rounded-lg dark:bg-gray-800">
-                        <div className="p-6 text-gray-900 dark:text-gray-100">
-                            <pre>
-                                {JSON.stringify(features, undefined, 2)}
-                            </pre>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            {features.data.map((feature) => (
+                <FeatureItem feature={feature} />
+            ))}
         </AuthenticatedLayout>
     );
 }
