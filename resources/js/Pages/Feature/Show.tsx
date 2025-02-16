@@ -1,14 +1,20 @@
-import { Feature } from "@/types";
-import { useState } from "react";
+import FeatureItem from "@/Components/FeatureItem";
+import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
+import { Feature, PaginatedData } from "@/types";
+import { Head } from "@inertiajs/react";
 
-export default function FeatureItem({ feature }: { feature: Feature }) {
-    const [isexpanded, setIsExpanded] = useState(false);
-
-    const toggleReadMore = () => {
-        setIsExpanded(!isexpanded);
-    };
+export default function Show({feature}: {feature: Feature}) {
     return (
-        <div className="mb-4 overflow-hidden bg-white shadow-sm sm:rounded-lg dark:bg-gray-800">
+        <AuthenticatedLayout
+            header={
+                <h2 className="text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200">
+                    Feeature <b>{feature.name}</b>
+                </h2>
+            }
+        >
+            <Head title={'feature' + feature.name}  />
+
+            <div className="mb-4 overflow-hidden bg-white shadow-sm sm:rounded-lg dark:bg-gray-800">
             <div className="p-6 text-gray-900 dark:text-gray-100 flex gap-8">
                 <div className="flex flex-col items-center">
                     <button>
@@ -49,19 +55,10 @@ export default function FeatureItem({ feature }: { feature: Feature }) {
                 </div>
                 <div className="flex-1">
                     <h2 className="text-2xl mb-2">{feature.name}</h2>
-                    <p>
-                        {isexpanded
-                            ? feature.description
-                            : `${feature.description.slice(0, 200)}...`}
-                    </p>
-                    <button
-                        onClick={toggleReadMore}
-                        className="text-amber-500 hover:underline"
-                    >
-                        {isexpanded ? "Read less" : "Read more"}
-                    </button>
+                    <p>{feature.description}</p>
                 </div>
             </div>
         </div>
+        </AuthenticatedLayout>
     );
 }

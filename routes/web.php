@@ -20,7 +20,7 @@ Route::middleware('auth')->group(function () {
 
    
 });
-Route::get('/features', [FeatureController::class , 'index'])
-->name('feature.index');
+
+Route::resource('feature', FeatureController::class)->middleware('auth');
 
 require __DIR__.'/auth.php';

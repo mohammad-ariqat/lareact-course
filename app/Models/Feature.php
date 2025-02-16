@@ -15,6 +15,12 @@ class Feature extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
+
+     protected $fillable = [
+         'name',
+         'description',
+         'user_id',
+     ];
     public function upvotes(): HasMany
     {   
         return $this->hasMany(Upvote::class);
