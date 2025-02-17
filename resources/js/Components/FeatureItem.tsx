@@ -1,4 +1,5 @@
 import { Feature } from "@/types";
+import { Link } from "@inertiajs/react";
 import { useState } from "react";
 
 export default function FeatureItem({ feature }: { feature: Feature }) {
@@ -48,7 +49,11 @@ export default function FeatureItem({ feature }: { feature: Feature }) {
                     </button>
                 </div>
                 <div className="flex-1">
-                    <h2 className="text-2xl mb-2">{feature.name}</h2>
+                    <h2 className="text-2xl mb-2">
+                        <Link href={route("feature.show", feature)}>
+                            {feature.name}
+                        </Link>
+                    </h2>
                     <p>
                         {isexpanded
                             ? feature.description
