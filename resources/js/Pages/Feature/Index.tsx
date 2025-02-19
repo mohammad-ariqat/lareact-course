@@ -26,7 +26,7 @@ export default function index({
             </div>
 
             {features.data.map((feature) => (
-                <FeatureItem feature={feature} />
+                <FeatureItem feature={feature} key={feature.id} />
             ))}
         </AuthenticatedLayout>
     );

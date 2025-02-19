@@ -33,6 +33,7 @@ class FeatureController extends Controller
      */
     public function store(Request $request)
     {
+        
         $data = $request->validate([
             'name' => ['required', 'string'],
             'description' => ['nullable', 'string'],
