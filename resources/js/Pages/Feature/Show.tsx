@@ -4,7 +4,6 @@ import { Feature, PaginatedData } from "@/types";
 import { Head } from "@inertiajs/react";
 
 export default function Show({feature}: {feature: Feature}) {
-    console.log(feature);
     return (
         <AuthenticatedLayout
             header={

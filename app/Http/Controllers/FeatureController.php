@@ -37,7 +37,7 @@ class FeatureController extends Controller
             'name' => ['required', 'string'],
             'description' => ['nullable', 'string'],
         ]);
-        $data['user_id'] = auth()->id;
+        $data['user_id'] = auth()->user()->id;
 
         Feature::create($data);
 
