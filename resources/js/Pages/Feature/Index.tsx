@@ -8,7 +8,7 @@ export default function index({
 }: {
     features: PaginatedData<Feature>;
 }) {
-    console.log(features);
+
     return (
         <AuthenticatedLayout
             header={

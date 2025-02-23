@@ -1,6 +1,7 @@
 import { Feature } from "@/types";
 import { Link } from "@inertiajs/react";
 import { useState } from "react";
+import ActionDropDown from "./ActionDropDown";
 
 export default function FeatureItem({ feature }: { feature: Feature }) {
     const [isexpanded, setIsExpanded] = useState(false);
@@ -65,7 +66,14 @@ export default function FeatureItem({ feature }: { feature: Feature }) {
                     >
                         {isexpanded ? "Read less" : "Read more"}
                     </button>
+                
+                
                 </div>
+                
+                <div>
+                    <ActionDropDown feature={feature} />
+                </div>
+
             </div>
         </div>
     );

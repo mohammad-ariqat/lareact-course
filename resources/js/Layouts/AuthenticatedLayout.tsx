@@ -10,7 +10,7 @@ export default function Authenticated({
     children,
 }: PropsWithChildren<{ header?: ReactNode }>) {
     const user = usePage().props.auth.user;
-    console.log(user);
+    const success: any = usePage().props.success;
 
     const [showingNavigationDropdown, setShowingNavigationDropdown] =
         useState(false);
@@ -190,6 +190,13 @@ export default function Authenticated({
 
             <div className="py-12">
                 <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
+                    <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
+                        {success && (
+                            <div className="bg-emerald-500 p-6 rounded">
+                                {success}
+                            </div>
+                        )}
+                    </div>
                     <main>{children}</main>
                 </div>
             </div>
